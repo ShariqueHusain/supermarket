@@ -1,3 +1,4 @@
 # supermarket
 
-This is just a sample app for github
+This is just a sample app for supermarket
+Change for some testing
