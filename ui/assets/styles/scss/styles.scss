@@ -1,0 +1,483 @@
+@import "__variables";
+@import "__mixins.scss";
+
+.content {
+  /*Tablets*/
+  @media only screen and (min-width: $phone-width) and (max-width: $tablet-width) {
+    padding: 0 80px 0 80px;
+  }
+
+  /*Desktops*/
+  @media only screen and (min-width: $desktop-width) {  
+    padding: 0 160px 0 160px;
+  }
+}
+
+.head {
+  font-family: $font-heading;
+  font-size: 40px;
+  text-align: center;
+  border-bottom: $border-active;
+}
+
+.sidenav {
+  display: none;
+  
+/*  @media only screen and (min-width: 600px) {
+    display: none;
+  }*/
+
+  @media only screen and (min-width: $desktop-width) {
+    display: block;
+    border-top: $border-active;
+    border-bottom: $border-active;
+    font-size: 12px;  
+    text-transform: uppercase;
+  }
+
+  &__navhead{
+    font-weight: bold;
+    margin: 10px;
+    padding: 8px;
+  }
+
+  &__navitem{    
+    margin: 10px;
+    padding: 8px;
+  }
+
+  &__navitem--hover:hover{
+    cursor: pointer;
+  }
+
+  &__navitem--selected{
+    border: $border-active;
+    border-radius: 5px;
+  }
+}
+
+.rightcontent {
+  float: right;
+  font-size: 15px;
+}
+
+.navitem__item{
+  display: inline-block;
+}
+
+.closeitem {
+  float: right;
+}
+
+.mv-filter {  
+  width: 100%;  
+  text-align: center;
+  margin-bottom: 15px;
+
+  @media only screen and (min-width: $desktop-width) {
+    display: none;
+  }
+
+  &__category {
+    display: inline-block;
+    margin:0 auto;
+    width: max-content;    
+    border: $border-active;
+    padding: 9px;
+    border-radius: 5px;
+  }
+  
+  &__category-modal {    
+    height: 100vh;    
+    background-color: rgb(245, 245, 245);
+    text-align: left;
+    font-size: 12px;
+    padding: 15px;
+    text-transform: uppercase;
+  }
+  
+  &__category-options {    
+    background-color: white;
+    padding: 15px;
+    border-bottom: 1px solid rgb(245, 245, 245);
+  }
+
+  &__sort {
+    display: inline-block;
+    margin:0 auto;
+    width: max-content;
+  }
+
+  &__select {
+    padding: 10px;
+    width:140px;
+    border-radius: 5px;
+    border: $border-active;
+  }
+
+}
+
+.topdiv {
+  display: none;
+
+  @media only screen and (min-width: $desktop-width) {  
+    display: block;
+    margin-bottom: 10px;
+    text-align: right;
+  }
+}
+
+.banner-container{
+  text-align: center;
+
+  @media only screen and (min-width: $desktop-width) {  
+    position: relative; 
+    width: 65%;    
+  }
+
+  &__image{    
+    display: none;
+
+    @media only screen and (min-width: $phone-width) {
+      display: block;
+      width: 99%;
+      height: auto;
+    }
+  }
+
+  &__heading{
+    font-family: $font-title;    
+    text-align: center;
+    color: black;    
+    font-size: 28px;
+
+    @media only screen and (min-width: $phone-width) {
+      position: absolute;
+      top: 5%;
+      color: white;
+      left: 35%; 
+    }
+  }
+
+  &__text{
+    color: black;
+    padding: 25px;
+    font-family: Verdana;
+
+    @media only screen and (min-width: $phone-width) {      
+      position: absolute; 
+      top: 20%;
+      left: 24%;
+      right: 24%;
+      text-align: center;
+      color: white;
+      padding: 0;
+    }
+  }
+}
+
+
+.block-group{
+
+  @media only screen and (min-width: 768px) {      
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.block {
+  background-color: $block-background-color;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+
+  @media only screen and (min-width: 768px) {    
+    height: 500px;
+    width: auto;
+    max-width: 330px;
+    margin: 5px;
+    padding: 10px;
+    flex: 30%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 300px;
+
+    @media only screen and (min-width: 768px) {
+      height: 250px;
+      width: 230px;
+    }
+  }
+
+  &__title {
+    @include product-title();
+  }
+
+  &__description {
+    @include product-description();
+  }
+
+  &__price {
+    @include product-price();
+  }
+
+  &__ratings {
+    @include product-ratings();
+  }
+
+  &__quick-shop {
+    color: white;
+    margin-bottom: 20px;
+
+    @media only screen and (min-width: 768px) {
+      visibility: hidden;
+    }
+  }
+
+  &__quick-shop-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 15px 10px 15px;
+    border-radius: 6px;
+  }
+
+  &__quick-shop-btn--hover:hover {
+    background-color: $button-links-hover-color;
+    color: white;
+  }
+
+  &__wishlist {    
+    margin-bottom: 20px;
+
+    @media only screen and (min-width: 768px) {
+      visibility: hidden;
+    }
+  }
+
+  &__wishlist-link {
+    @include add-to-wishlist-link();    
+  }
+
+}
+
+.block--hover:hover {
+  border: $border-active;
+  cursor: pointer;  
+}
+
+.block--hover:hover > .block__quick-shop {  
+  visibility: visible;
+}
+
+.block--hover:hover > .block__wishlist{  
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}
+
+.quickshop-wrapper{    
+  width: 100%;  
+  margin: 5px;
+  position: relative;
+
+  @media only screen and (min-width: 768px) {
+    border: $border-active;
+    display: flex;
+    padding: 10px;
+  }
+
+  &__container {
+    padding: 10px;
+
+    @media only screen and (min-width: 768px) {
+      background-color: $block-background-color;
+    }
+  } 
+
+  &__image {
+    text-align: center;
+
+    @media only screen and (min-width: 768px) {
+      display: inline-block;
+      width: 45%;      
+    }
+
+  }
+
+  &__image-img {
+    width: 65%;
+    height: auto;
+
+    @media only screen and (min-width: 768px) {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__content {
+    text-align: center;
+
+    @media only screen and (min-width: 768px) {
+      top:0;
+      display: inline-block;
+      width: 45%;
+      padding-left: 20px;
+      text-align: inherit;
+    }
+  }
+
+  &__title {
+    @include product-title(22px);
+  }
+
+  &__description {
+    @include product-description(14px);
+    text-wrap: normal;
+  }
+
+  &__hr-1 {
+    display: none;
+
+    @media only screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  &__hr-3 {
+    display: none;
+
+    @media only screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  &__price-ratings {
+
+    @media only screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  &__price {
+    @include product-price(15px);
+
+    @media only screen and (min-width: 768px) {
+      display: inline-block;
+    }
+  }
+
+  &__ratings {    
+    @include product-ratings(19px);
+
+    @media only screen and (min-width: 768px) {
+      float:right;    
+      display: inline-block;
+    }
+  }
+
+  &__choose {
+    text-align: left;
+  }
+
+  &__choose-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  &__product-size {
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  &__replenishment {
+    text-align: left;
+  }
+
+  &__replenishment-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  &__replenishment-otd {
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  &__replenishment-select {
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  &__add-to-bag-btn {
+    background-color: black; 
+    color: white;
+    font-size: 11px;
+    padding: 12px 27px 12px 27px;
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+
+    @media only screen and (min-width: 768px) {
+      width: auto;
+      display: inherit;
+    }
+  }
+
+  &__add-to-bag-btn--hover:hover {
+    background-color: $button-links-hover-color;
+    color: white;
+  }
+
+  &__wishlist-link {    
+    @include add-to-wishlist-link();
+
+    @media only screen and (min-width: 768px) {
+      padding-left: 10px;      
+    }
+  }
+
+  &__wishlist-link--hover:hover {
+    color: $button-links-hover-color;
+  }
+
+  &__close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 15;
+    right: 0;
+    width: 5%;
+
+    @media only screen and (min-width: 768px) {
+      display: inline-block;      
+    }
+  }
+
+}
+

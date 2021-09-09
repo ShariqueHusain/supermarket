@@ -1,0 +1,651 @@
+<html>
+  <head>
+    <title>Supermarket</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="ui/assets/js/site.js"></script>
+    <link rel="stylesheet" href="ui/assets/styles/css/styles.css">
+
+    <script type="text/javascript">
+      var productslist = {
+        "products":
+                [{
+                    "title": "Brown eggs",
+                    "type": "dairy",
+                    "description": "Raw organic brown eggs in a basket",
+                    "filename": "HyderatingIlluminator.webp",
+                    "height": 600,
+                    "width": 400,
+                    "price": 28.1,
+                    "rating": 4
+                  }, {
+                    "title": "Sweet fresh stawberry",
+                    "type": "fruit",
+                    "description": "Sweet fresh stawberry on the wooden table",
+                    "filename": "TheConcealer.webp",
+                    "height": 450,
+                    "width": 299,
+                    "price": 29.45,
+                    "rating": 4
+                  }, {
+                    "title": "Asparagus",
+                    "type": "vegetable",
+                    "description": "Asparagus with ham on the wooden table",
+                    "filename": "TreatmentLotion.webp",
+                    "height": 450,
+                    "width": 299,
+                    "price": 18.95,
+                    "rating": 3
+                  }, {
+                    "title": "Green smoothie",
+                    "type": "dairy",
+                    "description": "Glass of green smoothie with quail egg's yolk, served with cocktail tube, green apple and baby spinach leaves over tin surface.",
+                    "filename": "TheConcentrate.webp",
+                    "height": 600,
+                    "width": 399,
+                    "price": 17.68,
+                    "rating": 4
+                  }, {
+                    "title": "Raw legums",
+                    "type": "vegetable",
+                    "description": "Raw legums on the wooden table",
+                    "filename": "CremeDeleMer.webp",
+                    "height": 450,
+                    "width": 299,
+                    "price": 17.11,
+                    "rating": 2
+                  }, {
+                    "title": "Baking cake",
+                    "type": "dairy",
+                    "description": "Baking cake in rural kitchen - dough  recipe ingredients (eggs, flour, sugar) on vintage wooden table from above.",
+                    "filename": "TheRenewalOil.webp",
+                    "height": 450,
+                    "width": 675,
+                    "price": 11.14,
+                    "rating": 4
+                  }, {
+                    "title": "Pesto with basil",
+                    "type": "vegetable",
+                    "description": "Italian traditional pesto with basil, chesse and oil",
+                    "filename": "LipVolumizer.webp",
+                    "height": 450,
+                    "width": 299,
+                    "price": 18.19,
+                    "rating": 2
+                  }, {
+                    "title": "Hazelnut in black ceramic bowl",
+                    "type": "vegetable",
+                    "description": "Hazelnut in black ceramic bowl on old wooden background. forest wealth. rustic style. selective focus",
+                    "filename": "TreatmentLotionHyderatingMask.webp",
+                    "height": 450,
+                    "width": 301,
+                    "price": 27.35,
+                    "rating": 0
+                  }, {
+                    "title": "Fresh stawberry",
+                    "type": "fruit",
+                    "description": "Sweet fresh stawberry on the wooden table",
+                    "filename": "EyeConcentrate.webp",
+                    "height": 600,
+                    "width": 399,
+                    "price": 28.59,
+                    "rating": 4
+                  }, {
+                    "title": "Lemon and salt",
+                    "type": "fruit",
+                    "description": "Rosemary, lemon and salt on the table",
+                    "filename": "CremeDeleMer.webp",
+                    "height": 450,
+                    "width": 299,
+                    "price": 15.79,
+                    "rating": 5
+                  }, {
+                    "title": "Homemade bread",
+                    "type": "bakery",
+                    "description": "Homemade bread",
+                    "filename": "HyderatingIlluminator.webp",
+                    "height": 450,
+                    "width": 301,
+                    "price": 17.48,
+                    "rating": 3
+                  }, {
+                    "title": "Legums",
+                    "type": "vegetable",
+                    "description": "Cooked legums on the wooden table",
+                    "filename": "LipVolumizer.webp",
+                    "height": 600,
+                    "width": 399,
+                    "price": 14.77,
+                    "rating": 0
+                  }, {
+                    "title": "Fresh tomato",
+                    "type": "vegetable",
+                    "description": "Fresh tomato juice with basil",
+                    "filename": "TheConcealer.webp",
+                    "height": 600,
+                    "width": 903,
+                    "price": 16.3,
+                    "rating": 2
+                  }, {
+                    "title": "Healthy breakfast",
+                    "type": "fruit",
+                    "description": "Healthy breakfast set. rice cereal or porridge with berries and honey over rustic wood background",
+                    "filename": "TheConcentrate.webp",
+                    "height": 450,
+                    "width": 350,
+                    "price": 13.02,
+                    "rating": 2
+                  }, {
+                    "title": "Green beans",
+                    "type": "vegetable",
+                    "description": "Raw organic green beans ready to eat",
+                    "filename": "TheRenewalOil.webp",
+                    "height": 450,
+                    "width": 300,
+                    "price": 28.79,
+                    "rating": 1
+                  }, {
+                    "title": "Baked stuffed portabello mushrooms",
+                    "type": "bakery",
+                    "description": "Homemade baked stuffed portabello mushrooms with spinach and cheese",
+                    "filename": "TreatmentLotion.webp",
+                    "height": 600,
+                    "width": 400,
+                    "price": 20.31,
+                    "rating": 1
+                  }, {
+                    "title": "Strawberry jelly",
+                    "type": "fruit",
+                    "description": "Homemade organic strawberry jelly in a jar",
+                    "filename": "TreatmentLotionHyderatingMask.webp",
+                    "height": 400,
+                    "width": 600,
+                    "price": 14.18,
+                    "rating": 1
+                  }, {
+                    "title": "Pears juice",
+                    "type": "fruit",
+                    "description": "Fresh pears juice on the wooden table",
+                    "filename": "EyeConcentrate.webp",
+                    "height": 600,
+                    "width": 398,
+                    "price": 19.49,
+                    "rating": 4
+                  }, {
+                    "title": "Fresh pears",
+                    "type": "fruit",
+                    "description": "Sweet fresh pears on the wooden table",
+                    "filename": "CremeDeleMer.webp",
+                    "height": 600,
+                    "width": 398,
+                    "price": 15.12,
+                    "rating": 5
+                  }, {
+                    "title": "Caprese salad",
+                    "type": "vegetable",
+                    "description": "Homemade healthy caprese salad with tomato mozzarella and basil",
+                    "filename": "HyderatingIlluminator.webp",
+                    "height": 400,
+                    "width": 600,
+                    "price": 16.76,
+                    "rating": 5
+                  }, {
+                    "title": "Oranges",
+                    "type": "fruit",
+                    "description": "Orange popsicle ice cream bars made from fresh oranges.  a refreshing summer treat.",
+                    "filename": "LipVolumizer.webp",
+                    "height": 450,
+                    "width": 274,
+                    "price": 21.48,
+                    "rating": 4
+                  }, {
+                    "title": "Vegan food",
+                    "type": "vegetable",
+                    "description": "Concept of vegan food",
+                    "filename": "TheConcealer.webp",
+                    "height": 450,
+                    "width": 299,
+                    "price": 29.66,
+                    "rating": 4
+                  }, {
+                    "title": "Breakfast with muesli",
+                    "type": "dairy",
+                    "description": "Concept of healthy breakfast with muesli",
+                    "filename": "TheConcentrate.webp",
+                    "height": 450,
+                    "width": 299,
+                    "price": 22.7,
+                    "rating": 2
+                  }, {
+                    "title": "Honey",
+                    "type": "bakery",
+                    "description": "Honey and honeycell on the table",
+                    "filename": "TheRenewalOil.webp",
+                    "height": 450,
+                    "width": 299,
+                    "price": 17.01,
+                    "rating": 2
+                  }, {
+                    "title": "Breakfast with cottage",
+                    "type": "fruit",
+                    "description": "Healthy breakfast with cottage cheese and strawberry",
+                    "filename": "TreatmentLotion.webp",
+                    "height": 600,
+                    "width": 398,
+                    "price": 14.05,
+                    "rating": 1
+                  }, {
+                    "title": "Strawberry smoothie",
+                    "type": "fruit",
+                    "description": "Glass of red strawberry smoothie with chia seeds, served with retro cocktail tube, fresh mint and strawberries over dark background",
+                    "filename": "TreatmentLotionHyderatingMask.webp",
+                    "height": 600,
+                    "width": 400,
+                    "price": 28.86,
+                    "rating": 2
+                  }, {
+                    "title": "Strawberry and mint",
+                    "type": "fruit",
+                    "description": "Homemade muesli with strawberry and mint",
+                    "filename": "EyeConcentrate.webp",
+                    "height": 450,
+                    "width": 299,
+                    "price": 26.21,
+                    "rating": 4
+                  }, {
+                    "title": "Ricotta",
+                    "type": "dairy",
+                    "description": "Ricotta with berry and mint",
+                    "filename": "HyderatingIlluminator.webp",
+                    "height": 600,
+                    "width": 398,
+                    "price": 27.81,
+                    "rating": 5
+                  }, {
+                    "title": "Cuban sandwiche",
+                    "type": "bakery",
+                    "description": "Homemade traditional cuban sandwiches with ham pork and cheese",
+                    "filename": "LipVolumizer.webp",
+                    "height": 450,
+                    "width": 300,
+                    "price": 18.5,
+                    "rating": 4
+                  }, {
+                    "title": "Granola",
+                    "type": "dairy",
+                    "description": "Glass jar with homemade granola and yogurt with nuts, raspberries and blackberries on wooden cutting board over white textile in day light",
+                    "filename": "TheConcealer.webp",
+                    "height": 450,
+                    "width": 300,
+                    "price": 29.97,
+                    "rating": 3
+                  }, {
+                    "title": "Smoothie with chia seeds",
+                    "type": "fruit",
+                    "description": "Glass of red strawberry smoothie with chia seeds, served with retro cocktail tube, fresh mint and strawberries over wooden table",
+                    "filename": "TheConcentrate.webp",
+                    "height": 600,
+                    "width": 900,
+                    "price": 25.26,
+                    "rating": 5
+                  }, {
+                    "title": "Yogurt",
+                    "type": "dairy",
+                    "description": "Homemade yogurt with raspberry and mint",
+                    "filename": "TheRenewalOil.webp",
+                    "height": 450,
+                    "width": 299,
+                    "price": 27.61,
+                    "rating": 4
+                  }, {
+                    "title": "Sandwich with salad",
+                    "type": "vegetable",
+                    "description": "Vegan sandwich with salad, tomato and radish",
+                    "filename": "TreatmentLotion.webp",
+                    "height": 600,
+                    "width": 398,
+                    "price": 22.48,
+                    "rating": 5
+                  }, {
+                    "title": "Cherry",
+                    "type": "fruit",
+                    "description": "Cherry with sugar on old table",
+                    "filename": "TreatmentLotionHyderatingMask.webp",
+                    "height": 600,
+                    "width": 400,
+                    "price": 14.35,
+                    "rating": 5
+                  }, {
+                    "title": "Raw asparagus",
+                    "type": "vegetable",
+                    "description": "Raw fresh asparagus salad with cheese and dressing",
+                    "filename": "CremeDeleMer.webp",
+                    "height": 600,
+                    "width": 400,
+                    "price": 22.97,
+                    "rating": 4
+                  }, {
+                    "title": "Corn",
+                    "type": "vegetable",
+                    "description": "Grilled corn on the cob with salt and butter",
+                    "filename": "EyeConcentrate.webp",
+                    "height": 450,
+                    "width": 300,
+                    "price": 13.55,
+                    "rating": 2
+                  }, {
+                    "title": "Vegan",
+                    "type": "vegan",
+                    "description": "Concept of healthy vegan eating",
+                    "filename": "HyderatingIlluminator.webp",
+                    "height": 600,
+                    "width": 398,
+                    "price": 28.96,
+                    "rating": 5
+                  }, {
+                    "title": "Fresh blueberries",
+                    "type": "fruit",
+                    "description": "Healthy breakfast. berry crumble with fresh blueberries, raspberries, strawberries, almond, walnuts, pecans, yogurt, and mint in ceramic plates over white wooden surface, top view",
+                    "filename": "LipVolumizer.webp",
+                    "height": 450,
+                    "width": 321,
+                    "price": 21.01,
+                    "rating": 4
+                  }, {
+                    "title": "Smashed avocado",
+                    "type": "fruit",
+                    "description": "Vegan sandwiches with smashed avocado, tomatoes and radish. top view",
+                    "filename": "TheConcealer.webp",
+                    "height": 450,
+                    "width": 450,
+                    "price": 25.88,
+                    "rating": 0
+                  }, {
+                    "title": "Italian ciabatta",
+                    "type": "bakery",
+                    "description": "Italian ciabatta bread cut in slices on wooden chopping board with herbs, garlic and olives over dark grunge backdrop, top view",
+                    "filename": "TheConcentrate.webp",
+                    "height": 450,
+                    "width": 565,
+                    "price": 15.18,
+                    "rating": 1
+                  }, {
+                    "title": "Rustic breakfast",
+                    "type": "dairy",
+                    "description": "Rustic healthy breakfast set. cooked buckwheat groats with milk and honey on dark grunge backdrop. top view, copy space",
+                    "filename": "TheRenewalOil.webp",
+                    "height": 450,
+                    "width": 307,
+                    "price": 21.32,
+                    "rating": 0
+                  }, {
+                    "title": "Sliced lemons",
+                    "type": "fruit",
+                    "description": "Heap of whole and sliced lemons and limes with mint in vintage metal grid box over old wooden table with turquoise wooden background. dark rustic style.",
+                    "filename": "TreatmentLotion.webp",
+                    "height": 600,
+                    "width": 900,
+                    "price": 27.14,
+                    "rating": 2
+                  }, {
+                    "title": "Plums",
+                    "type": "fruit",
+                    "description": "Yellow and red sweet plums",
+                    "filename": "TreatmentLotionHyderatingMask.webp",
+                    "height": 450,
+                    "width": 299,
+                    "price": 19.18,
+                    "rating": 1
+                  }, {
+                    "title": "French fries",
+                    "type": "bakery",
+                    "description": "Homemade oven baked french fries with ketchup",
+                    "filename": "CremeDeleMer.webp",
+                    "height": 600,
+                    "width": 400,
+                    "price": 18.32,
+                    "rating": 3
+                  }, {
+                    "title": "Strawberries",
+                    "type": "fruit",
+                    "description": "Healthy breakfast set. rice cereal or porridge with fresh strawberry, apricots, almond and honey over white rustic wood backdrop, top view, \u0000",
+                    "filename": "EyeConcentrate.webp",
+                    "height": 450,
+                    "width": 352,
+                    "price": 15.13,
+                    "rating": 3
+                  }, {
+                    "title": "Ground beef meat burger",
+                    "type": "meat",
+                    "description": "Raw ground beef meat burger steak cutlets with seasoning on vintage wooden boards, black background",
+                    "filename": "HyderatingIlluminator.webp",
+                    "height": 450,
+                    "width": 675,
+                    "price": 11.73,
+                    "rating": 5
+                  }, {
+                    "title": "Tomatoes",
+                    "type": "fruit",
+                    "description": "Organic tomatoes made with love",
+                    "filename": "LipVolumizer.webp",
+                    "height": 450,
+                    "width": 675,
+                    "price": 26.03,
+                    "rating": 4
+                  }, {
+                    "title": "Basil",
+                    "type": "vegetable",
+                    "description": "Concept of vegan food with basil",
+                    "filename": "TheConcealer.webp",
+                    "height": 450,
+                    "width": 678,
+                    "price": 15.19,
+                    "rating": 4
+                  }, {
+                    "title": "Fruits bouquet",
+                    "type": "fruit",
+                    "description": "Abstract citrus fruits bouquet on blue background",
+                    "filename": "TheConcentrate.webp",
+                    "height": 600,
+                    "width": 401,
+                    "price": 18.18,
+                    "rating": 1
+                  }, {
+                    "title": "Peaches on branch",
+                    "type": "fruit",
+                    "description": "Peaches on branch with leaves and glasses with peach juice and limonade with ice cubes in aluminum tray over old metal table. dark rustic style. top view.",
+                    "filename": "TheRenewalOil.webp",
+                    "height": 600,
+                    "width": 400,
+                    "price": 25.62,
+                    "rating": 3
+                  }],
+        "stars": function () {
+          var i = 0;
+          var starshtml = "";
+          for (i = 0; i < this.rating; i++)
+            starshtml += "<span>&#9733;</span>";
+          return starshtml;
+        }
+      };
+    </script>
+
+  </head>
+  <body>        
+    <h3 class="head">Supermarket</h3>
+
+    <div class="row content">      
+      <aside class="col-md-2 col-xs-12">
+        <br><br><br>
+        <div class="sidenav">
+          <div class="sidenav__navhead js-category-div" data-toggle="collapse" data-target="#products-filter">CATEGORY <div class="rightcontent">-</div></div>
+          <div id="products-filter" class="in">
+            <div class="sidenav__navitem sidenav__navitem--hover js-filter-link" data-filter-type="bakery"><div class="navitem__item">Bakery</div></div>
+            <div class="sidenav__navitem sidenav__navitem--hover js-filter-link" data-filter-type="dairy"><div class="navitem__item">Dairy</div></div>
+            <div class="sidenav__navitem sidenav__navitem--hover js-filter-link" data-filter-type="fruit"><div class="navitem__item">Fruit</div></div>
+            <div class="sidenav__navitem sidenav__navitem--hover js-filter-link" data-filter-type="vegetable"><div class="navitem__item">Vegetable</div></div>
+            <div class="sidenav__navitem sidenav__navitem--hover js-filter-link" data-filter-type="meat"><div class="navitem__item">Meat</div></div>
+          </div>
+        </div>
+
+        <div class="mv-filter">
+          <div class="mv-filter__category" data-toggle="modal" data-target="#exampleModal">Filter &emsp;&emsp;<div class="rightcontent">+</div></div>
+          <div class="mv-filter__sort">
+            <select class="mv-filter__select js-sort-list">
+              <option value=0 disabled selected>SORT BY:</option>
+              <option value="price-low">PRICE(LOW TO HIGH)</option>
+              <option value="price-high">PRICE(HIGH TO LOW)</option>
+              <option value="rating">HIGHEST RATED</option>
+            </select>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="mv-filter__category-modal">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <p>FILTER BY: </p> 
+                <div class="modal-body">
+                  <div style="font-weight: bold;">CATEGORY</div>
+                  <div class="mv-filter__category-options">Bakery</div>
+                  <div class="mv-filter__category-options">Dairy</div>
+                  <div class="mv-filter__category-options">Fruit</div>
+                  <div class="mv-filter__category-options">Vegetable</div>
+                  <div class="mv-filter__category-options">Meat</div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn " data-dismiss="modal">CLEAR ALL</button>
+                  <button type="button" class="btn ">APPLY</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </aside>
+
+      <main class="col-md-10 col-xs-12">
+        <div class="row topdiv">    
+          <div class="col-md-10"></div>
+          <div class="col-md-2">
+            <select class="form-control js-sort-list">
+              <option value=0 disabled selected>SORT BY:</option>
+              <option value="price-low">PRICE(LOW TO HIGH)</option>
+              <option value="price-high">PRICE(HIGH TO LOW)</option>
+              <option value="rating">HIGHEST RATED</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-xs-12 block-group js-products-list">
+            <div class="banner-container">
+              <img class="banner-container__image" src="ui/assets/images/Category_Touts_Bestsellers_1.webp">
+              <h2 class="banner-container__heading">BESTSELLERS</h2>
+              <div class="banner-container__text">
+                Our most loved treatments deliver rejuvenation,targeted renewal and La Mer's miraculous healing moisture.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script id="product-template" type="x-tmpl-mustache">
+          <div class="block block--hover block_{{blockid}}" data-product-type="{{type}}" data-rating="{{rating}}" data-price="{{price}}" data-block-id="{{blockid}}" data-quickshop-id="{{quickshop_id}}">
+
+          <img src="ui/assets/images/{{filename}}" class="block__img block__img--hover">
+          {{#title}}
+          <div class="block__title">
+          {{{title}}}
+          </div>
+          {{/title}}
+          {{#description}}
+          <div class="block__description">
+          {{{description}}}
+          </div>
+          {{/description}}
+          {{#price}}
+          <div class="block__price">
+          ${{{price}}}
+          </div>
+          {{/price}}
+          {{#stars}}
+          <div class="block__ratings">                    
+          {{{stars}}}
+          </div>
+          {{/stars}}
+          <div class="block__quick-shop">
+          <button class="btn block__quick-shop-btn block__quick-shop-btn--hover js-quick-shop-btn">Quick Shop</button>
+          </div>
+          <div class="block__wishlist">
+          <a href="#" class="block__wishlist-link">ADD TO WISHLIST</a>
+          </div>           
+
+          </div>
+
+        </script>
+
+        <script id="quickshop-template" type="x-tmpl-mustache">
+          <div class="quickshop-wrapper quickshop-wrapper-id-{{quickshop_id}} hide">
+          </div>
+        </script>
+
+        <script id="quickshop-inner-template" type="x-tmpl-mustache">          
+          <div class="quickshop-wrapper__container">
+          <div class="quickshop-wrapper__image">
+          <img class="quickshop-wrapper__image-img" src="{{imageUrl}}">
+          </div>
+          <div class="quickshop-wrapper__content">
+          {{#title}}
+          <div class="quickshop-wrapper__title">{{{title}}}</div>
+          {{/title}}
+          {{#description}}
+          <div class="quickshop-wrapper__description">{{{description}}}</div>
+          {{/description}}
+          <hr class="quickshop-wrapper__hr-1">
+          <div class="quickshop-wrapper__price-ratings">
+          {{#price}}
+          <div class="quickshop-wrapper__price">{{{price}}}</div>
+          {{/price}}
+          {{#stars}}
+          <div class="quickshop-wrapper__ratings">{{{stars}}}</div>
+          {{/stars}}
+          </div>
+          <hr>
+          <div class="quickshop-wrapper__choose">
+          <div class="quickshop-wrapper__choose-title">CHOOSE SIZE:</div>
+          <div class="quickshop-wrapper__product-size">40ml / $80</div>
+          <div class="quickshop-wrapper__product-size">80ml / $160</div>
+          </div>
+          <hr class="quickshop-wrapper__hr-3">
+          <div class="quickshop-wrapper__replenishment">
+          <div class="quickshop-wrapper__replenishment-title">REPLENISHMENT:</div>
+          <div class="quickshop-wrapper__replenishment-otd">One time delivery</div>
+          <div class="quickshop-wrapper__replenishment-select">Auto replenish</div>
+          </div>
+          <hr class="quickshop-wrapper__hr-3">
+          <button class="btn quickshop-wrapper__add-to-bag-btn quickshop-wrapper__add-to-bag-btn--hover">ADD TO BAG</button>
+          <a href="#" class="quickshop-wrapper__wishlist-link quickshop-wrapper__wishlist-link--hover">ADD TO WISHLIST</a>
+          </div>
+          <div class="quickshop-wrapper__close js-quickshop-wrapper-close">X</div>
+          </div>
+        </script>
+
+
+      </main>
+    </div>
+
+    <script type="text/javascript">
+
+      initializeComponents();
+
+
+    </script>
+  </body>
+</html>

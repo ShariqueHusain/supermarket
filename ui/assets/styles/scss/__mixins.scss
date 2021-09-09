@@ -1,0 +1,33 @@
+@import "__variables.scss";
+
+@mixin product-title($font-size:20px) {
+  font-family: $font-title;
+  font-size: $font-size;
+  margin-bottom: 5px;;
+}
+
+@mixin product-description($font-size:14px) {
+  font-family: $font-description;
+  font-size: $font-size;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+@mixin product-price($font-size:14px) {
+  font-family: $font-price;
+  font-size: $font-size;
+  margin-bottom: 5px;
+}
+
+@mixin product-ratings($font-size:20px) {
+  font-family: $font-ratings;
+  font-size: $font-size;
+  margin-bottom: 7px;
+}
+
+@mixin add-to-wishlist-link($font-size:10px) {
+  color: black;
+  font-family: $font-price;
+  font-size: $font-size;
+  text-decoration: underline;
+}
